@@ -16,9 +16,12 @@
 // const div = React.createElement('div',{id:'parent'},
 //     React.createElement('div',{id:'children'},
 //         [React.createElement('h1',{},'sibling 1'),React.createElement('h1',{},'sibling 2)]));
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 const div = React.createElement('div',{id:'parent'},
     React.createElement('div',{id:'children'},
-        [React.createElement('h1',{},'Sibling 1'),React.createElement('h1',{},'Sibling 2')]));
+        [React.createElement('h1',{},'Sibling 1'),React.createElement('h1',{},'Sibling 2')])); 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(div);
 // console.log(heading);

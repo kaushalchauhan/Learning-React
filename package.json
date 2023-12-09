@@ -1,0 +1,42 @@
+{
+  "name": "learning-react",
+  "version": "1.0.0",
+  "description": "Learning React",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaushalchauhan/Learning-React.git"
+  },
+  "keywords": [
+    "Javascript",
+    "React",
+    "React",
+    "JS",
+    "Kaushal",
+    "Chauhan",
+    "Learning",
+    "React",
+    "Akshay",
+    "Saini",
+    "Namste",
+    "React"
+  ],
+  "author": "Kaushal Chauhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaushalchauhan/Learning-React/issues"
+  },
+  "homepage": "https://github.com/kaushalchauhan/Learning-React#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": ["last 10 versions"]
+}
