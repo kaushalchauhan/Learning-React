@@ -1,26 +1,28 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
+  // const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
+  const resInfo = useRestaurantMenu(resId);
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
+  // useEffect(() => {
+  //   fetchMenu();
+  // }, []);
 
-  const fetchMenu = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5729847&lng=77.32490430000001&restaurantId=" +
-        resId
-    );
+  // const fetchMenu = async () => {
+  //   const data = await fetch(
+  //     "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5729847&lng=77.32490430000001&restaurantId=" +
+  //       resId
+  //   );
 
-    const json = await data.json();
+  //   const json = await data.json();
 
-    console.log("menu", json);
-    setResInfo(json);
-  };
+  //   console.log("menu", json);
+  //   setResInfo(json);
+  // };
 
   if (resInfo === null) return <Shimmer />;
 
@@ -42,8 +44,8 @@ const RestaurantMenu = () => {
       <h3>Menu:</h3>
       <ul>
         {itemCards.map((item) => (
-          <div>
-            <li key={item?.card?.info?.id}>
+          <div key={item?.card?.info?.id}>
+            <li>
               {item?.card?.info?.name} : Rs. {item?.card?.info?.price}
             </li>
             <img
