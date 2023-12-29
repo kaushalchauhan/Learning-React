@@ -9,11 +9,11 @@ const About = () => {
         location={"Garhmukteshwar"}
         username={"kaushalRchauhan"}
       />
-      {/* <UserClass
+      <UserClass
         name={"Kaushal Chauhan (class)"}
         location={"Garhmukteshwar"}
         username={"kaushalRchauhan"}
-      /> */}
+      />
     </div>
   );
 };

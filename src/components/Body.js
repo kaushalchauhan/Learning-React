@@ -25,7 +25,7 @@ const Body = () => {
     const json = await data.json();
 
     const reslist =
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     console.log(json);
     console.log("json", reslist);

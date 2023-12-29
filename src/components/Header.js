@@ -1,11 +1,14 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [loginBtn, setloginBtn] = useState("login");
   const onlineStatus = useOnlineStatus();
+
+  const { loggedInUser } = useContext(UserContext);
   return (
     <div className="z-10 header flex justify-between bg-purple-200 shadow-md mb-2 p-3 items-center sticky top-0">
       <div className="logo-container cursor-pointer">
@@ -15,9 +18,16 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul className="flex p-4 m-4">
-          <li className="px-3">
-            Status : {onlineStatus ? "Online : ✅" : "Offline : 🔴"}
-          </li>
+          <div className="group relative flex justify-center">
+            <li title="custom hook" className="px-3 cursor-progress">
+              Status : {onlineStatus ? "Online : ✅" : "Offline : 🔴"}
+            </li>
+
+            <span className="absolute top-10 scale-0 rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
+              Tells the internet connection status✨
+            </span>
+          </div>
+
           <li className="px-3">
             <Link to="/">Home</Link>
           </li>
@@ -43,6 +53,12 @@ const Header = () => {
           >
             {loginBtn}
           </button>
+          <li
+            className="font-bold px-3"
+            title="from react context & updated from App.js using Provider"
+          >
+            {loggedInUser}
+          </li>
         </ul>
       </div>
     </div>

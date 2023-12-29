@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -63,6 +64,9 @@ class UserClass extends React.Component {
           <h3>Bio : {this.state.userInfo.bio}</h3>
           <h3>Account Created Date: {created_at}</h3>
         </div>
+        <UserContext.Consumer>
+          {(data) => console.log(data.loggedInUser)}
+        </UserContext.Consumer>
       </div>
     );
   }

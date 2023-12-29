@@ -1,12 +1,15 @@
-import { useParams } from "react-router-dom";
-// import { useEffect, useState } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   // const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
+
+  const [showIndexItem, setShowIndexItem] = useState(0);
 
   // useEffect(() => {
   //   fetchMenu();
@@ -30,33 +33,36 @@ const RestaurantMenu = () => {
     resInfo?.data?.cards[0]?.card?.card?.info;
   console.log(name);
 
-  const { itemCards } =
-    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card;
+  const itemCards =
+    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
   console.log("card", itemCards);
+
+  const categories = itemCards.filter(
+    (c) =>
+      c.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+  console.log("fil", categories);
+
+  const dummy = "dummy data";
+
   return (
-    <div className="res-menu">
-      <h2>{name}</h2>
-      <h3>cuisines: {cuisines.join(", ")}</h3>
-      <h3>{costForTwoMessage}</h3>
-      <h2>Rating: {avgRating}</h2>
-      <h3>Menu:</h3>
-      <ul>
-        {itemCards.map((item) => (
-          <div key={item?.card?.info?.id}>
-            <li>
-              {item?.card?.info?.name} : Rs. {item?.card?.info?.price}
-            </li>
-            <img
-              src={
-                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
-                item?.card?.info?.imageId
-              }
-            />
-          </div>
-        ))}
-      </ul>
+    <div className="res-menu text-center">
+      <h2 className="font-bold my-6 text-2xl ">{name}</h2>
+      <h3 className="font-bold text-lg">
+        cuisines: {cuisines.join(", ")}, <span> {costForTwoMessage},</span>{" "}
+        <span> Rating: {avgRating}</span>
+      </h3>
+      {categories.map((category, index) => (
+        <RestaurantCategory
+          key={category?.card?.card?.title}
+          data={category?.card?.card}
+          showItems={index === showIndexItem ? true : false}
+          setShowIndexItem={() => setShowIndexItem(index)}
+          dummy={dummy}
+        />
+      ))}
     </div>
   );
 };
