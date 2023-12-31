@@ -1,7 +1,15 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
+import { addItem } from "../utils/slices/cartSlice";
+
 const ResItemMenuList = ({ items, dummy }) => {
   //   console.log("itemssss", items);
-  console.log(dummy);
+  // console.log(dummy);
+  const dispatch = useDispatch();
+  // Dispacthing an action
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       <div>
@@ -27,9 +35,12 @@ const ResItemMenuList = ({ items, dummy }) => {
                 className="rounded-md"
                 src={CDN_URL + item?.card?.info?.imageId}
               />
-              <span className="absolute text-sm -bottom-3 left-[30%] shadow-md text-green-400 px-5 py-1 bg-white cursor-pointer border border-gray-300 rounded-md">
+              <button
+                onClick={() => handleAddItem(item)}
+                className="absolute text-sm -bottom-3 left-[30%] shadow-md text-green-400 px-5 py-1 bg-white border border-gray-300 rounded-md"
+              >
                 ADD
-              </span>
+              </button>
             </div>
           </div>
         ))}

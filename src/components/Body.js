@@ -25,7 +25,7 @@ const Body = () => {
     const json = await data.json();
 
     const reslist =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     console.log(json);
     console.log("json", reslist);
@@ -60,6 +60,7 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           />
+
           <button
             className="px-6 py-2 m-4 bg-green-200 rounded-sm"
             onClick={() => {
