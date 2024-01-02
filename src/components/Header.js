@@ -6,7 +6,7 @@ import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [loginBtn, setloginBtn] = useState("login");
+  const [loginBtn, setloginBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
 
   // subscribing to the store using Selector
@@ -59,9 +59,9 @@ const Header = () => {
           <button
             className="login-btn"
             onClick={() => {
-              loginBtn === "login"
-                ? setloginBtn("logout")
-                : setloginBtn("login");
+              loginBtn === "Login"
+                ? setloginBtn("Logout")
+                : setloginBtn("Login");
             }}
           >
             {loginBtn}

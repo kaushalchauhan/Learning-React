@@ -6,8 +6,9 @@ const ResItemMenuList = ({ items, dummy }) => {
   //   console.log("itemssss", items);
   // console.log(dummy);
   const dispatch = useDispatch();
-  // Dispacthing an action
+
   const handleAddItem = (item) => {
+    // Dispacthing an action
     dispatch(addItem(item));
   };
   return (

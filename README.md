@@ -29,11 +29,11 @@
 - - Logo
 - - Nav Items
 - Body
-- - Search
-- - Restaurant Container
-- - Restraunt Card
--      - Img
--      - Name of Res, star rating, cuisine, delivery time
+  - Search
+  - Restaurant Container
+  - Restraunt Card
+  - Img
+  - Name of Res, star rating, cuisine, delivery time
 - Footer
 - - Copyright
 - - Links
@@ -73,3 +73,22 @@
 - Create (cartSlice)
 - dispatch(action)
 - Selector(subscribe)
+
+# Types of Testing (Developer Proscpective)
+
+- Unit Testing - u test ur component in isolation
+- Integration Testing
+- End to end Testing (e2e)
+
+# Testing Setup in our App
+
+- Install React Testing Library
+- Install Jest
+- Install Babel dependencies
+- Configure Babel
+- Configure Parcel config file To disable default Babel transpilation in Parcel
+- Jest configuration - npx jest --init
+- Install js dom library
+- Install @babel/preset-react - to make jsx work in test cases
+- Include @babel/preset-react inside my babel config - add this to arr - ["@babel/preset-react", { runtime: "automatic" }],
+- Install @testing-library/jest-dom
