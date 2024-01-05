@@ -25,7 +25,7 @@ const Body = () => {
     const json = await data.json();
 
     const reslist =
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     console.log(json);
     console.log("json", reslist);
@@ -54,6 +54,7 @@ const Body = () => {
       <div className="filter flex">
         <div className="search m-4 p-4">
           <input
+            data-testid="searchTextInput"
             className="search-input p-1 border border-solid border-black"
             value={searchText}
             onChange={(e) => {
@@ -62,6 +63,7 @@ const Body = () => {
           />
 
           <button
+            data-testid="searchBtn"
             className="px-6 py-2 m-4 bg-green-200 rounded-sm"
             onClick={() => {
               console.log(searchText);
@@ -78,7 +80,7 @@ const Body = () => {
             className="filter-btn px-6 py-2 m-4 bg-blue-200 rounded-sm"
             onClick={() => {
               const fiteredList = listOfRestaurant.filter((res) => {
-                return res.info.avgRating > 4;
+                return res.info.avgRating > 4.4;
               });
               setlistOfRestaurant(fiteredList);
             }}

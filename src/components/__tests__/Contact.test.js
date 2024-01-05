@@ -22,3 +22,11 @@ describe("contact us component test case", () => {
     expect(inputBoxes.length).toBe(2);
   });
 });
+
+// In describe we have beforeAll, beforeEach, afterEach and afterEach
+decribe("xyz", () => {
+  beforeAll(() => {});
+  beforeEach(() => {});
+  AfterEach(() => {});
+  AfterAll(() => {});
+});

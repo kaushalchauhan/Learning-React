@@ -6,6 +6,7 @@ const RestaurantCard = (props) => {
     resData;
   return (
     <div
+      data-testid="resCard"
       className="res-card m-4 p-4 w-[250px] h-max rounded-md hover:border bg-gray-100 hover:bg-gray-200"
       // style={styleCard}
     >
